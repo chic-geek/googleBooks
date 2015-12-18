@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- page title -->
+    <title>Index.html</title>
+
+    <!-- meta tags -->
+    @@include('views/partials/_meta-tags.html')
+
+    <!-- stylesheets -->
+    @@include('views/partials/_stylesheets.html')
+
+    <!-- angular js -->
+    @@include('views/partials/_angular-app.html')
+
+    <!-- javascripts (vendor) -->
+    @@include('views/partials/_javascripts-vendor.html')
+  </head>
+
+  <body ng-app="myApp">
+    <div ng-controller="FeedDetails">
+
+      <!-- search -->
+      <div class="search">
+        <div class="container">
+          <h1 class="search-module-title">Google book search</h1>
+          <p class="search-module-meta">Type out your query below to get some results.</p>
+          <input type="search" placeholder="Type your query" autofocus="" ng-model="search" ng-change="change()" onclick="select()">
+        </div>
+      </div>
+
+      <!-- search results -->
+      <div class="page container">
+        <div ng-if="!data">
+          <h4>Loading results, please wait...</h4>
+        </div>
+
+        <div ng-if="data.Response!=='False'">
+          <ul class="cards">
+            <li class="card" ng-repeat="book in bookFeed | orderBy:publishedDate">
+              <div class="card-container">
+                <aside class="card-aside">
+                  <img class="card-media" ng-src="{{ book.volumeInfo.imageLinks.thumbnail==='undefined' ? 'book.volumeInfo.imageLinks.thumbnail' : 'http://placehold.it/128x160' }}" alt="{{ book.volumeInfo.title }}">
+                </aside>
+
+                <h1 class="card-title">{{ book.volumeInfo.title }}</h1>
+                <small class="card-meta">Published: {{ book.volumeInfo.publishedDate | date }}</small>
+                <p class="card-para">{{ book.volumeInfo.description | limitTo: 200 }}<span ng-if="book.volumeInfo.description.length > 200">...</span></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- javascripts (modules) -->
+    @@include('views/partials/_javascripts-modules.html')
+  </body>
+</html>
