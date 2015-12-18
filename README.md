@@ -1,22 +1,17 @@
-# Project pipeline
+# Project: googleBooks
 
-This repository has been put together to enable projects **NOT** running Middleman or Rails frameworks to have a pre-determined asset-pipeline that is similar to the way in which those frameworks are put together only this uses Gulp.
+A quick readme to get you up and running with the very simple Google Books AngularJS application.
 
-The purpose of this project was for use with .Net projects or anything that doesn't run on the above frameworks with it's own asset-pipeline.
+Begin by `$ cd googleBooks` directory and follow the steps below:
 
-### Gulp CLI commands
+## Step #1
+Run `$ npm install`
 
-There are 3 main Gulp commands you'll need to use:
+## Step #2
+Run `$ bower_install`
 
-* `$ gulp build` - This will create the `build` directory if it doesn't already exist and output all the assets added.
+## Step #3
+Next run `$ gulp pipeline-serve` to create the required directories, watching of files and serve up on localhost.
 
-* `$ gulp develop` - Used when developing your application, this task runs the `watch` task to keep track of your changing assets.
-
-* `$ gulp deploy` - For use when you're ready to deploy. This will clean out the `build directory`, apply the `build` task followed by minifying and uglifying the css and js respectively.
-
-#### ToDo
-
-* Finish up writing `README.md`.
-* Find a more robust work-around for the setTimeout function in `$ gulp deploy` task.
-* Add ability to to compile coffeeScript files too.
-* Make sourcemaps available.
+## Step #4
+She's all yours!
