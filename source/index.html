@@ -40,7 +40,7 @@
             <li class="card" ng-repeat="book in bookFeed | orderBy:publishedDate">
               <div class="card-container">
                 <aside class="card-aside">
-                  <img class="card-media" ng-src="{{ book.volumeInfo.imageLinks.thumbnail==='undefined' ? 'book.volumeInfo.imageLinks.thumbnail' : 'http://placehold.it/128x160' }}" alt="{{ book.volumeInfo.title }}">
+                  <img class="card-media" ng-src="{{ book.volumeInfo.imageLinks.thumbnail || 'http://placehold.it/128x160' }}" alt="{{ book.volumeInfo.title }}" width="128" height="160">
                 </aside>
 
                 <h1 class="card-title">{{ book.volumeInfo.title }}</h1>

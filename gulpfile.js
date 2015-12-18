@@ -63,7 +63,7 @@ var
 
     // server details
     server: {
-      port: 5000
+      port: 8081
     }
   };
 
