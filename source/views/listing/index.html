@@ -1,0 +1,23 @@
+<div class="page container">
+  <div ng-if="!data">
+    <h4>Loading results, please wait...</h4>
+  </div>
+
+  <div ng-if="data.Response!=='False'">
+    <ul class="cards">
+      <li class="card" ng-repeat="book in bookFeed | orderBy:publishedDate">
+        <a class="card-with-link" ng-href="{{ book.volumeInfo.previewLink }}" target="_blank">
+          <div class="card-container">
+            <aside class="card-aside">
+              <img class="card-media" ng-src="{{ book.volumeInfo.imageLinks.thumbnail || 'http://placehold.it/128x160' }}" alt="{{ book.volumeInfo.title }}" width="128" height="160">
+            </aside>
+  
+            <h1 class="card-title">{{ book.volumeInfo.title }}</h1>
+            <small class="card-meta">Published: {{ book.volumeInfo.publishedDate | date }}</small>
+            <p class="card-para">{{ book.volumeInfo.description | limitTo: 200 }}<span ng-if="book.volumeInfo.description.length > 200">...</span></p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

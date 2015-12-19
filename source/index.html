@@ -21,36 +21,10 @@
     <div ng-controller="FeedDetails">
 
       <!-- search -->
-      <div class="search">
-        <div class="container">
-          <h1 class="search-module-title">Google book search</h1>
-          <p class="search-module-meta">Type out your query below to get some results.</p>
-          <input type="search" placeholder="Type your query" autofocus="" ng-model="search" ng-change="change()" onclick="select()">
-        </div>
-      </div>
+      @@include('views/search/index.html')
 
       <!-- search results -->
-      <div class="page container">
-        <div ng-if="!data">
-          <h4>Loading results, please wait...</h4>
-        </div>
-
-        <div ng-if="data.Response!=='False'">
-          <ul class="cards">
-            <li class="card" ng-repeat="book in bookFeed | orderBy:publishedDate">
-              <div class="card-container">
-                <aside class="card-aside">
-                  <img class="card-media" ng-src="{{ book.volumeInfo.imageLinks.thumbnail || 'http://placehold.it/128x160' }}" alt="{{ book.volumeInfo.title }}" width="128" height="160">
-                </aside>
-
-                <h1 class="card-title">{{ book.volumeInfo.title }}</h1>
-                <small class="card-meta">Published: {{ book.volumeInfo.publishedDate | date }}</small>
-                <p class="card-para">{{ book.volumeInfo.description | limitTo: 200 }}<span ng-if="book.volumeInfo.description.length > 200">...</span></p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+      @@include('views/listing/index.html')
 
     </div>
 
