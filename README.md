@@ -8,7 +8,7 @@ Begin by `$ cd googleBooks` directory and follow the steps below:
 Run `$ npm install`
 
 ## Step #2
-Run `$ bower_install`
+Run `$ bower install`
 
 ## Step #3
 Next run `$ gulp pipeline-serve` to create the required directories, watching of files and serve up on localhost.
